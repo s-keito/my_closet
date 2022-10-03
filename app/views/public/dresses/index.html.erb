@@ -1,2 +1,9 @@
-<h1>Public::Dresses#index</h1>
-<p>Find me in app/views/public/dresses/index.html.erb</p>
+ <% @dresses.each_slice(4) do |dress| %>
+     <div class ="image">
+      <% dress.each do |image| %>
+        <%= link_to dress_path(dress)  do %>
+        <%= image_tag image.get_image, size:'200x200' %>
+        <% end %>
+      <% end %>
+    </div>
+  <% end %>

@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="row">
+    <div class="col-2">
+      <%= image_tag user.get_user_image, style: "border-radius: 50%; width: 100px; height: 100px; object-fit:cover;" %>
+  	    <p><%= user.name %></p>
+
+          <% if user.name != "guestuser" %>
+           <%= link_to edit_user_path(user) do %>
+            <div class="btn">
+             <button type="button" class="btn btn-secondary">usre_edit</button>
+            </div>
+           <% end %>
+          <% end %>
+
+        <div class="btn">
+        <button type="button" class="btn btn-secondary">follow</button>
+        </div>
+        <div class="btn">
+        <button type="button" class="btn btn-secondary">DM</button>
+        </div>
+    </div>
+
+    <div class="col-1"></div>
+     <div class="col-9">
+      <div class="card-body">
+        <h3 class="text-success">introduction</h3>
+          <p class="card-text">
+           <%= @user.introduction %>
+          </p>
+        <div>follow followed post</div>
+      </div>
+     </div>
+  </div>
+</div>

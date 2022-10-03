@@ -1,2 +1,25 @@
-<h1>Public::Dresses#show</h1>
-<p>Find me in app/views/public/dresses/show.html.erb</p>
+  <div class="container">
+   <div class="row">
+    <div class="col"></div>
+     <div class="col">
+
+      <%= image_tag @dress.get_image, size: '400x400' %><br>
+      <%= @dress.caption %><br>
+      <%= @dress.category %><br>
+      <!--</%= @dress.season.seasonal %><br>-->
+      <a><%= link_to user_path(@dress.user) do %>
+      <%= @dress.user.name %><% end %></a><br>
+
+        <% if @dress.user == current_user %>
+          <%= link_to edit_dress_path(@dress) do %>
+           <button type="button" class="btn btn-secondary">edit</button>
+          <% end %>
+          <%= link_to dress_path(@dress), method: :delete,"data-confirm" => "本当に削除しますか？" do %>
+           <button type="button" class="btn btn-secondary">delete</button>
+          <% end %>
+        <% end %>
+
+     </div>
+    <div class="col"></div>
+  </div>
+</div>

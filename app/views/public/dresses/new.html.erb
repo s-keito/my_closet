@@ -1,2 +1,29 @@
-<h1>Public::Dresses#new</h1>
-<p>Find me in app/views/public/dresses/new.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col"></div>
+     <div class="col">
+
+      <%= form_with model: @dress, url: dresses_path, local:true do |f| %>
+        <div class="form-group">
+          <%= f.label :image %>
+          <%= f.file_field :image, accept: "image/*" %>
+        </div>
+        <div class="form-group">
+          <%= f.label :caption %>
+          <%= f.text_area :caption, class: 'form-control dress_caption' %>
+        </div>
+
+        <div class="form-group">
+        <%= f.label :category, "category" %>
+         <%= f.select :category, Dress.categories.keys %>
+        </div>
+
+        <div class="form-group">
+          <%= f.submit class: 'btn btn-success' %>
+        </div>
+      <% end %>
+
+    </div>
+   <div class="col"></div>
+  </div>
+</div>
