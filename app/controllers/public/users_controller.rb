@@ -4,9 +4,8 @@ class Public::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @dresses = @user.dresses.order(created_at: :desc)
-    # @seasons = Season.all
-    # @dresses = params[:season_id].present? ? Season.find(params[:season_id]).dresses : Dress.all
+    @seasons = Season.all
+    @dresses = params[:name].present? ? Season.find(params[:name]).dresses : @user.dresses.order(created_at: :desc)
   end
 
   def index

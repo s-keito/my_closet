@@ -6,19 +6,20 @@
       <div class="dress_image"><%= image_tag @dress.get_image, size: '400x400' %></div>
        <p><%= @dress.caption %></p>
         <p><%= @dress.category %></p>
+         <p><%= @dress.season.name %></p>
          <a><%= link_to user_path(@dress.user) do %>
            <%= @dress.user.name %><% end %></a><br>
 
-         <div class="btn">
-         <% if @dress.user == current_user %>
-          <%= link_to edit_dress_path(@dress) do %>
-           <button type="button" class="btn btn-secondary">edit</button>
-          <% end %>
-          <%= link_to dress_path(@dress), method: :delete,"data-confirm" => "本当に削除しますか？" do %>
-           <button type="button" class="btn btn-secondary">delete</button>
-          <% end %>
-         <% end %>
-        </div>
+            <div class="btn">
+            <% if @dress.user == current_user %>
+             <%= link_to edit_dress_path(@dress) do %>
+              <button type="button" class="btn btn-secondary">edit</button>
+             <% end %>
+             <%= link_to dress_path(@dress), method: :delete,"data-confirm" => "本当に削除しますか？" do %>
+              <button type="button" class="btn btn-secondary">delete</button>
+             <% end %>
+            <% end %>
+           </div>
 
      </div>
     <div class="col"></div>

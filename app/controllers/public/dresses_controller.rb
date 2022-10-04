@@ -19,7 +19,8 @@ class Public::DressesController < ApplicationController
   end
 
   def index
-    @dresses = Dress.all.order(created_at: :desc)
+    @seasons = Season.all
+    @dresses = params[:name].present? ? Season.find(params[:name]).dresses : Dress.all.order(created_at: :desc)
   end
 
   def edit
@@ -35,10 +36,16 @@ class Public::DressesController < ApplicationController
     end
   end
 
+  def destroy
+    @dress = Dress.find(params[:id])
+    @dress.destroy
+    redirect_to user_path(@dress.user)
+  end
+
   private
 
   def dress_params
-    params.require(:dress).permit(:image, :category, :caption)
+    params.require(:dress).permit(:image, :category, :caption, :season_id, :name)
   end
 
 

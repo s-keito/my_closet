@@ -11,7 +11,7 @@
           <% end %>
         </ul>
       <% end %>
-      
+
       <%= form_with model: @dress, url: dresses_path, local:true do |f| %>
         <div class="form-group">
           <%= f.label :image %>
@@ -23,8 +23,13 @@
         </div>
 
         <div class="form-group">
-        <%= f.label :category, "category" %>
+         <%= f.label :category, "category" %>
          <%= f.select :category, Dress.categories.keys %>
+        </div>
+
+        <div class="form-group">
+         <%= f.label :season_id, "season" %>
+         <%= f.select :season_id, options_from_collection_for_select(Season.all, :id, :name) %>
         </div>
 
         <div class="form-group">
