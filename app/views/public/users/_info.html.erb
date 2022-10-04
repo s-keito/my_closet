@@ -4,6 +4,7 @@
       <%= image_tag user.get_user_image, style: "border-radius: 50%; width: 100px; height: 100px; object-fit:cover;" %>
   	    <p><%= user.name %></p>
 
+         <% if user.name != "guestuser" %>
           <% if user == current_user %>
            <%= link_to edit_user_path(user) do %>
             <div class="btn">
@@ -11,6 +12,7 @@
             </div>
            <% end %>
           <% end %>
+         <% end %>
 
         <div class="btn">
         <button type="button" class="btn btn-secondary">follow</button>
