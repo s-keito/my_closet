@@ -1,9 +1,19 @@
- <% @dresses.each_slice(4) do |dress| %>
-     <div class ="image">
-      <% dress.each do |image| %>
-        <%= link_to dress_path(dress)  do %>
-        <%= image_tag image.get_image, size:'200x200' %>
-        <% end %>
+<div class="container">
+  <div class="row">
+    <div class="col-1"></div>
+     <div class="col-10 my-5">
+
+       <% @dresses.each_slice(4) do |dress| %>
+        <div class ="image">
+         <% dress.each do |image| %>
+           <%= link_to dress_path(dress)  do %>
+           <%= image_tag image.get_image, size:'200x200' %>
+           <% end %>
+         <% end %>
+       </div>
       <% end %>
-    </div>
-  <% end %>
+
+     </div>
+   <div class="col-1"></div>
+  </div>
+</div>

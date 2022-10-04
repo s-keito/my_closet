@@ -1,8 +1,8 @@
   <header>
-   <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container">
       <a class="navbar-brand" href="/">
-        <%= image_tag 'logo.png', size:"100x100" %>
+        <%= image_tag 'logo3.png', size:"120x120" %>
       </a>
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
@@ -11,48 +11,48 @@
         <ul class="navbar-nav ml-auto">
         <% if user_signed_in? %>
           <li>
-            <%= link_to user_path(current_user),class: 'nav-link text-light' do %>
+            <%= link_to user_path(current_user),class: 'nav-link text-dark' do %>
             <i class="far fa-smile"></i> <%= current_user.name %>'s page
             <% end %>
           </li>
           <li>
-            <%=  link_to new_dress_path,class: 'nav-link text-light' do %>
+            <%=  link_to new_dress_path,class: 'nav-link text-dark' do %>
             <i class="fas fa-plus-circle"></i> new closet
             <% end %>
           </li>
           <li>
-            <%= link_to dresses_path,class: 'nav-link text-light' do %>
+            <%= link_to dresses_path,class: 'nav-link text-dark' do %>
             <i class="fas fa-tshirt"></i> all closet
             <% end %>
           </li>
           <li>
-            <%=  link_to users_path ,class: 'nav-link text-light' do %>
+            <%=  link_to users_path ,class: 'nav-link text-dark' do %>
             <i class="fas fa-users"></i> others
             <% end %>
           </li>
           <li>
-            <%= link_to destroy_user_session_path, method: :delete,class: 'nav-link text-light' do %>
+            <%= link_to destroy_user_session_path, method: :delete,class: 'nav-link text-dark' do %>
               <i class="fas fa-sign-out-alt"></i> logout
             <% end %>
           </li>
         <% else %>
           <li>
-            <%= link_to root_path,class: 'nav-link text-light' do %>
+            <%= link_to root_path,class: 'nav-link text-dark' do %>
               <i class="fas fa-home"></i> home
             <% end %>
           </li>
           <li>
-            <%= link_to about_path,class: 'nav-link text-light' do %>
+            <%= link_to about_path,class: 'nav-link text-dark' do %>
               <i class="fas fa-sun"></i> about
             <% end %>
           </li>
           <li>
-            <%= link_to new_user_registration_path,class: 'nav-link text-light' do %>
+            <%= link_to new_user_registration_path,class: 'nav-link text-dark' do %>
               <i class="fas fa-user-plus"></i> sign up
             <% end %>
           </li>
           <li>
-            <%= link_to new_user_session_path ,class: 'nav-link text-light' do %>
+            <%= link_to new_user_session_path ,class: 'nav-link text-dark' do %>
               <i class="fas fa-sign-in-alt"></i> login
             <% end %>
           </li>
@@ -61,10 +61,10 @@
       </div>
     </div>
   </nav>
-  <nav class="navbar navbar-light bg-light">
-  <form class="form-inline">
-    <input class="form-control mr-sm-2" type="text" placeholder="Search">
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-  </form>
- </nav>
+    <nav class="navbar navbar-light bg-light">
+    <form class="form-inline ml-auto">
+      <input class="form-control mr-sm-2" type="text" placeholder="Search">
+      <button class="btn btn-outline-dark my-2 my-sm-0" type="submit">Search</button>
+    </form>
+   </nav>
 </header>

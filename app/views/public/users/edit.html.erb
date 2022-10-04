@@ -1,20 +1,30 @@
-<%= form_with model:@user, url:user_path(current_user), local:true do |f| %>
-<div class="form-group">
-    <%= f.label :user_image %>
-    <%= f.file_field :user_image, accept: "image/*" %>
-  </div>
-  <div class="form-group">
-    <%= f.label :name %>
-    <%= f.text_field :name, class: 'form-control user_name' %>
-  </div>
-  <div class="form-group">
-    <%= f.label :introduction %>
-    <%= f.text_area :introduction, class: 'form-control user_introduction' %>
-  </div>
+<div class="container">
+  <div class="row">
+    <div class="col"></div>
+     <div class="col my-5">
+
+        <%= form_with model:@user, url:user_path(current_user), local:true do |f| %>
+        <div class="form-group">
+            <%= f.label :user_image %>
+            <%= f.file_field :user_image, accept: "image/*" %>
+          </div>
+          <div class="form-group">
+            <%= f.label :name %>
+            <%= f.text_field :name, class: 'form-control user_name' %>
+          </div>
+          <div class="form-group">
+            <%= f.label :introduction %>
+            <%= f.text_area :introduction, class: 'form-control user_introduction' %>
+          </div>
 
 
 
-  <div class="form-group">
-    <%= f.submit class: 'btn btn-success' %>
+          <div class="form-group">
+            <%= f.submit class: 'btn btn-dark' %>
+          </div>
+        <% end %>
+
+      </div>
+   <div class="col"></div>
   </div>
-<% end %>
+</div>

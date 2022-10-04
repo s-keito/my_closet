@@ -5,4 +5,9 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
 
   has_many :dresses, dependent: :destroy
+  has_one_attached :user_image
+
+  def get_user_image
+    (user_image.attached?) ? user_image : 'no_image.jpg'
+  end
 end
