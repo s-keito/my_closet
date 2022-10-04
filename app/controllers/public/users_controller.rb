@@ -3,6 +3,7 @@ class Public::UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
+    @dresses = @user.dresses.order(created_at: :desc)
     # @seasons = Season.all
     # @dresses = params[:season_id].present? ? Season.find(params[:season_id]).dresses : Dress.all
   end

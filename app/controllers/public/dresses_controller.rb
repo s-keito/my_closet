@@ -10,8 +10,7 @@ class Public::DressesController < ApplicationController
     if @dress.save
       redirect_to user_path(@dress.user), notice: "You have created book successfully."
     else
-      @dresses = Dress.all
-      render 'index'
+      render 'new'
     end
   end
 

@@ -4,6 +4,16 @@
     </div>
     <div class="col-10 my-5 text-center">
 
+
+       <% if @user.errors.any? %>
+          <%= @user.errors.count %>件のエラーが発生しました
+          <ul>
+            <% @user.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+       <% end %>
+
       <h2>Log in</h2>
         <%= form_with model: @user, url: user_session_path do |f| %>
         <div class="field">

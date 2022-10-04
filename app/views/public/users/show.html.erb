@@ -8,16 +8,7 @@
      <div class="col-10">
       <h3 class="text-dark">items</h3>
         <h5>シーズン検索</h5>
-          <% @user.dresses.each_slice(4) do |dress| %>
-           <div class ="image">
-             <%= link_to dress_path(dress)  do %>
-              <% dress.each do |image| %>
-               <%= image_tag image.get_image, size:'200x200' %>
-              <% end %>
-             <% end %>
-            </div>
-          <% end %>
-        </div>
+         <%= render "public/dresses/dressindex", dresses: @dresses %>
     <div class="col-1"></div>
   </div>
 </div>

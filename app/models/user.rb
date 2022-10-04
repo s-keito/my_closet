@@ -6,6 +6,9 @@ class User < ApplicationRecord
 
   has_many :dresses, dependent: :destroy
   has_one_attached :user_image
+  validates :name, presence: true, length: { in: 1..10 }
+  validates :introduction, length: { in: 1..40 }
+
 
   def get_user_image
     (user_image.attached?) ? user_image : 'no_image.jpg'

@@ -3,6 +3,15 @@
     <div class="col"></div>
      <div class="col my-5">
 
+        <% if @dress.errors.any? %>
+          <%= @dress.errors.count %>件のエラーが発生しました
+          <ul>
+            <% @dress.errors.full_messages.each do |message| %>
+              <li><%= message %></li>
+            <% end %>
+          </ul>
+        <% end %>
+
         <%= form_with model: @dress, url: dress_path, local:true do |f| %>
           <div class="form-group">
             <%= f.label :caption %>
