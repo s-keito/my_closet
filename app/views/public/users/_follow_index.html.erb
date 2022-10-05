@@ -1,0 +1,38 @@
+<div class="container">
+  <div class="row">
+    <div class="col-1"></div>
+     <div class="col-10 my-3">
+       <% if users.exists? %>
+        <table class="table">
+          <thead class="thead-dark">
+              <tr>
+                <th>name</th>
+                <th>フォロー数</th>
+                <th>フォロワー数</th>
+                <th>　</th>
+              </tr>
+          </thead>
+          <tbody>
+            <% users.each do |user| %>
+              <tr>
+                <td><%= user.name %></td>
+                <td><%= user.followings.count %></td>
+                <td><%= user.followers.count %></td>
+                <td>
+                  <% if current_user.following?(user) %>
+                    <%= link_to "フォロー中", user_relationships_path(user.id), class:"text-dark", method: :delete %>
+                  <% else %>
+                    <%= link_to "フォローする", user_relationships_path(user.id), class:"text-dark", method: :post %>
+                  <% end %>
+                </td>
+              </tr>
+            <% end %>
+          </tbody>
+        </table>
+       <% else %>
+          <p class="text-center">ユーザーはいません</p>
+       <% end %>
+      </div>
+    <div class="col-1"></div>
+  </div>
+</div>

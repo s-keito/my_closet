@@ -37,8 +37,10 @@
            <%= @user.introduction %>
           </p>
           <div class="count my-5">
-            <p>フォロー数：<%= user.followings.count %>
-            　フォロワー数：<%= user.followers.count %>
+            <a><%= link_to followings_user_path(@user), class:"text-dark", style:"font-size:18px;" do %>
+              フォロー数：<%= user.followings.count %><% end %></a>
+            <a><%= link_to followers_user_path(@user), class:"text-dark", style:"font-size:18px;" do %>
+            　フォロワー数：<%= user.followers.count %><% end %></a>
             　post数：<%= user.dresses.count %></p>
           </div>
      </div>
