@@ -16,6 +16,7 @@ class Public::DressesController < ApplicationController
 
   def show
     @dress = Dress.find(params[:id])
+    @comment = Comment.new
   end
 
   def index

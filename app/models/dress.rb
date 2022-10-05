@@ -3,6 +3,7 @@ class Dress < ApplicationRecord
   belongs_to :season
   has_many :dress_seasons, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :comments, dependent: :destroy
   enum category: {tops: 0, bottoms: 1, shoes: 2, accessories: 3 }
   has_one_attached :image
   validates :image, presence: true

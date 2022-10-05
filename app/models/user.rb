@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   has_many :dresses, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :comments, dependent: :destroy
   has_one_attached :user_image
   validates :name, presence: true, length: { in: 1..20 }
   validates :introduction, length: { maximum: 40 }
