@@ -3,12 +3,31 @@
     <div class="col"></div>
      <div class="col">
 
-      <div class="dress_image"><%= image_tag @dress.get_image, size: '400x400' %></div>
-       <p><%= @dress.caption %></p>
-        <p><%= @dress.category %></p>
-         <p><%= @dress.season.name %></p>
-         <a><%= link_to user_path(@dress.user) do %>
-           <%= @dress.user.name %><% end %></a><br>
+           <div class="dress_show">
+             <div class="dress_image"><%= image_tag @dress.get_image, size: '400x400' %></div>
+              Posted date：<%= @dress.created_at.strftime('%Y/%m/%d') %><br>
+               Caption:：<%= @dress.caption %><br>
+                Category：<%= @dress.category %><br>
+               Season：<%= @dress.season.name %><br>
+              <a><%= link_to user_path(@dress.user), class:"text-dark", style:"font-size:18px;" do %>
+             <%= @dress.user.name %><% end %></a>
+            </div>
+
+            <div class="favorite my-2">
+             <% if @dress.favorited_by?(current_user) %>
+              <p style="font-size:20px;">
+                <%= link_to dress_favorites_path(@dress), class:"text-dark", method: :delete do %>
+                ♥<%= @dress.favorites.count %>
+                <% end %>
+              </p>
+             <% else %>
+              <p style="font-size:20px;">
+               <%= link_to dress_favorites_path(@dress), class:"text-dark", method: :post do %>
+               ♡<%= @dress.favorites.count %>
+               <% end %>
+              </p>
+             <% end %>
+            </div>
 
             <div class="btn">
             <% if @dress.user == current_user %>

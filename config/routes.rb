@@ -8,7 +8,9 @@ Rails.application.routes.draw do
   root to: "homes#top"
   get "/homes/about" => "homes#about", as: "about"
   resources :users, only: [:show, :index, :edit, :update]
-  resources :dresses, only: [:new, :create, :index, :show, :edit, :update, :destroy]
+  resources :dresses, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
+    resource :favorites, only: [:create, :destroy]
+  end
 end
 
  devise_scope :user do
