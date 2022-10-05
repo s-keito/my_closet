@@ -17,4 +17,13 @@ class Dress < ApplicationRecord
   def favorited_by?(user)
     favorites.exists?(user_id: user.id)
   end
+
+  # 検索方法分岐
+  def self.looks(search, word)
+    if search == "partial_match"
+      @dress = Dress.where(["caption LIKE? OR category LIKE?","%#{word}%", "%#{word}%"])
+    else
+      @dress = Dress.all
+    end
+  end
 end
