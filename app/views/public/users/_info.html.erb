@@ -47,6 +47,7 @@
             <a><%= link_to followers_user_path(@user), class:"text-dark", style:"font-size:18px;" do %>
             　フォロワー数：<%= user.followers.count %><% end %></a>
             　post数：<%= user.dresses.count %></p>
+            　<p><%=link_to"いいねした投稿",favorites_user_path(@user) %></p>
           </div>
      </div>
   </div>
