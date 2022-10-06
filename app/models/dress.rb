@@ -21,7 +21,7 @@ class Dress < ApplicationRecord
   # 検索方法分岐
   def self.looks(search, word)
     if search == "partial_match"
-      @dress = Dress.where(["caption LIKE? OR category LIKE?","%#{word}%", "%#{word}%"])
+      @dress = Dress.where("caption LIKE? OR category LIKE?","%#{word}%","%#{word}%")
     else
       @dress = Dress.all
     end
