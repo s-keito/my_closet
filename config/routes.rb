@@ -20,6 +20,8 @@ Rails.application.routes.draw do
     resources :comments, only: [:create, :destroy]
   end
   get "search" => "searches#search"
+  get '/users/:id/unsubscribe' => 'users#unsubscribe', as: 'unsubscribe'
+  patch '/users/:id/withdrawal' => 'users#withdrawal', as: 'withdrawal'
 end
 
  devise_scope :user do
@@ -33,6 +35,7 @@ end
  namespace :admin do
     resources :users
     resources :dresses
+    resources :comments, only: [:destroy]
   end
 
 

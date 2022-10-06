@@ -41,7 +41,6 @@ class Public::SessionsController < Devise::SessionsController
     if @user
       if (@user.valid_password?(params[:user][:password]) && (@user.active_for_authentication? == false))
         flash[:error] = "退会済みです。"
-        redirect_to new_session_path(resource_name)
       end
     else
       flash[:error] = "必須項目を入力してください。"

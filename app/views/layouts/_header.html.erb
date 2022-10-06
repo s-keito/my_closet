@@ -4,7 +4,10 @@
       <a class="navbar-brand" href="/">
         <%= image_tag 'logo3.png', size:"120x120" %>
       </a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+      <% if admin_signed_in? %>
+        <p class="admin text-center">管理者でログインしています</p>
+      <% end %>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
@@ -39,9 +42,6 @@
 
         <% elsif admin_signed_in? %>
           <!-- 管理者がログインしている時 -->
-            <li>
-            <p>管理者でログインしています</p>
-            </li>
             <li>
               <%= link_to "投稿一覧", admin_dresses_path, class: "nav-link text-dark" %>
             </li>

@@ -1,6 +1,6 @@
 <div class="container mx-5">
   <div class="row my-4">
-    <h4><span class="text-black bg-light"><%= @user.name %>さんのユーザー編集</span></h4>
+    <h4><span class="text-black"><%= @user.name %>さんのユーザー編集</span></h4>
   </div>
       <div class="row mx-5">
         <div class="col-12">
@@ -10,20 +10,18 @@
           <%= f.label :"name", class: "col-sm-2 control-label" %>
           <%= f.text_field :name, class: "mr-5" %>
           </div>
+
           <div class="form-group">
           <%= f.label :"メールアドレス", class: "col-sm-2 control-label" %>
           <%= f.text_field :email %>
           </div>
 
           <div class="form-group">
-          <%= f.label :"ユーザーステータス", class: "col-sm-2 control-label" %>
-          <input type="radio" id="contactChoice1"
-            name="contact" value="is_deleted" checked style="accent-color:black;">
-            <label for="contactChoice1">登録</label>
-          <input type="radio" id="contactChoice2"
-            name="contact" value="is_deleted">
-            <label for="contactChoice2">退会</label>
+            <%= f.label :"会員ステータス", class: "col-sm-2 control-label" %>
+            <%= f.radio_button :is_deleted, 'false' %><%= f.label :is_deleted, '有効' %>
+            　<%= f.radio_button :is_deleted, 'true' %><%= f.label :is_deleted, '退会' %>
           </div>
+
 
           <div class="form-group">
           <%= f.label :"　", class: "col-sm-2 control-label" %>

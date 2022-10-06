@@ -1,0 +1,41 @@
+<div class="container">
+   <div class="row my-5">
+    <div class="col"></div>
+     <div class="col">
+
+       <div class="dress_show">
+         <div class="dress_image"><%= image_tag @dress.get_image, size: '400x400' %></div>
+          Posted date：<%= @dress.created_at.strftime('%Y/%m/%d') %><br>
+           Caption:：<%= @dress.caption %><br>
+            Category：<%= @dress.category %><br>
+           Season：<%= @dress.season.name %><br>
+          <a><%= link_to admin_user_path(@dress.user), class:"text-dark border-bottom border-dark", style:"font-size:18px;" do %>
+           <%= @dress.user.name %><% end %></a><br>
+           <%= link_to "この投稿を削除する", admin_dress_path(@dress), method: :delete %>
+        </div>
+
+       <div class="comment_count my-4">
+         <p>コメント件数：<%= @dress.comments.count %></p>
+       </div>
+
+       <div class="comment my-5">
+         <table class="table">
+           <tbody>
+            <% @dress.comments.each do |comment| %>
+             <tr>
+               <th scope="row"><%= comment.user.name %></th>
+               <td><%= comment.created_at.strftime('%Y/%m/%d') %></td>
+               <td><%= comment.comment %></td>
+               <td>
+                <%= link_to "このコメントを削除する", admin_comment_path(comment), method: :delete %>
+               </td>
+              </tr>
+             <% end %>
+           </tbody>
+         </table>
+        </div>
+
+     </div>
+    <div class="col"></div>
+  </div>
+</div>

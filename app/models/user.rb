@@ -14,6 +14,7 @@ class User < ApplicationRecord
   has_one_attached :user_image
   validates :name, presence: true, length: { in: 1..20 }
   validates :introduction, length: { maximum: 40 }
+  validates :is_deleted, inclusion: [true, false]
 
   #画像がない時
   def get_user_image
@@ -46,5 +47,10 @@ class User < ApplicationRecord
     else
       @user = User.all
     end
+  end
+
+  # 退会処理、is_deletedがfalseならtrueを返すようにしている
+  def active_for_authentication?
+    super && (is_deleted == false)
   end
 end

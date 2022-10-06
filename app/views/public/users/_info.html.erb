@@ -11,6 +11,11 @@
              <button type="button" class="btn btn-secondary"><i class="fas fa-user"></i> edit</button>
             </div>
            <% end %>
+           <%= link_to unsubscribe_path(user) do %>
+            <div class="btn">
+             <button type="button" class="btn btn-secondary"><i class="fas fa-user"></i> 退会</button>
+            </div>
+           <% end %>
           <% end %>
          <% end %>
 

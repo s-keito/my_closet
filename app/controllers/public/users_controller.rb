@@ -35,6 +35,16 @@ class Public::UsersController < ApplicationController
     @users = @user.followers
   end
 
+  def unsubscribe
+  end
+
+  def withdrawal
+    @user = User.find(current_user.id)
+    # is_deletedカラムをtrueに変更することにより削除フラグを立てる
+    @user.update(is_deleted: true)
+    redirect_to root_path, notice: '退会処理を実行いたしました'
+  end
+
   private
 
   def user_params
