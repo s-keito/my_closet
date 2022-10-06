@@ -9,6 +9,7 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavDropdown">
         <ul class="navbar-nav ml-auto">
+
         <% if user_signed_in? %>
           <li>
             <%= link_to user_path(current_user),class: 'nav-link text-dark' do %>
@@ -35,6 +36,22 @@
               <i class="fas fa-sign-out-alt"></i> logout
             <% end %>
           </li>
+
+        <% elsif admin_signed_in? %>
+          <!-- 管理者がログインしている時 -->
+            <li>
+            <p>管理者でログインしています</p>
+            </li>
+            <li>
+              <%= link_to "投稿一覧", admin_dresses_path, class: "nav-link text-dark" %>
+            </li>
+            <li>
+              <%= link_to "ユーザ一覧", admin_users_path, class: "nav-link text-dark" %>
+            </li>
+            <li>
+            <%= link_to "ログアウト", destroy_admin_session_path, method: :delete,class: 'nav-link text-dark'%>
+          </li>
+        <!-- ログインしていない時 -->
         <% else %>
           <li>
             <%= link_to root_path,class: 'nav-link text-dark' do %>
@@ -61,6 +78,7 @@
       </div>
     </div>
   </nav>
+   <!-- 検索バー -->
     <nav class="navbar navbar-light bg-light">
       <% if user_signed_in? %>
         <div class="form-inline ml-auto">

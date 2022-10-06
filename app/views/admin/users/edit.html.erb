@@ -1,0 +1,36 @@
+<div class="container mx-5">
+  <div class="row my-4">
+    <h4><span class="text-black bg-light"><%= @user.name %>さんのユーザー編集</span></h4>
+  </div>
+      <div class="row mx-5">
+        <div class="col-12">
+          <%= form_with model: @user, url: admin_user_path(@user), method: :patch do |f| %>
+
+          <div class="form-group">
+          <%= f.label :"name", class: "col-sm-2 control-label" %>
+          <%= f.text_field :name, class: "mr-5" %>
+          </div>
+          <div class="form-group">
+          <%= f.label :"メールアドレス", class: "col-sm-2 control-label" %>
+          <%= f.text_field :email %>
+          </div>
+
+          <div class="form-group">
+          <%= f.label :"ユーザーステータス", class: "col-sm-2 control-label" %>
+          <input type="radio" id="contactChoice1"
+            name="contact" value="is_deleted" checked style="accent-color:black;">
+            <label for="contactChoice1">登録</label>
+          <input type="radio" id="contactChoice2"
+            name="contact" value="is_deleted">
+            <label for="contactChoice2">退会</label>
+          </div>
+
+          <div class="form-group">
+          <%= f.label :"　", class: "col-sm-2 control-label" %>
+          <%= f.submit "変更を保存",class: 'btn btn-success btn-md col-sm-2' %>
+          </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

@@ -12,4 +12,8 @@ Season.create([
     { name: 'autumn'},
     { name: 'winter'},
     ])
-    
+
+Admin.create!(
+  email: 'admin@example',
+  password: '123456'
+  )
