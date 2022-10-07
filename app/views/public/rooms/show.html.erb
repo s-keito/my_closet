@@ -1,36 +1,40 @@
-<div class="title">
-  <h2>
+<div class="container">
+  <div class="row">
+    <div class="col-2"></div>
+     <div class="col-8 my-5">
+       <h3 class="text-center"><%= @another_entry.user.name %>とのメッセージ</h3>
 
-    <p>”<%= @another_entry.user.name %>”さんとのメッセージ</p>
-  </h2>
-</div>
-<% @messages.each do |m| %>
-  <% if m.user_id == current_user.id %>
-    <div class="mycomment">
-      <p>
-        <%= m.body %>
-      </p>
-    </div>
-<% else %>
-  <div class="fukidasi">
-    <div class="faceicon">
-    </div>
-    <div class="chatting">
-      <div class="says">
-        <p>
-          <%= m.body %>
-        </p>
+      <% @messages.each do |m| %>
+        <table class="table table-borderless">
+          <tbody>
+           <tr>
+            <td>
+              <% if m.user_id == current_user.id %>
+                <div class="mycomment text-right">
+                  <%= m.body %>
+                </div>
+              <% else %>
+                  <div class="says text-left">
+                    <%= m.body %>
+                  </div>
+              <% end %>
+             </td>
+            </tr>
+           </tbody>
+         </table>
+        <% end %>
+
+          <div class="chat-form-box text-right">
+            <%= form_for @message do |f| %>
+              <div class="chat-form-group">
+                <%= f.text_field :body %>
+                <%= f.hidden_field :room_id, :value => @room.id %>
+                <%= f.submit "送信" %>
+              </div>
+            <% end %>
+          </div>
+
       </div>
-    </div>
+    <div class="col-2"></div>
   </div>
-<% end %>
-<% end %>
-<div class="chat-form-box">
-  <%= form_for @message do |f| %>
-    <div class="chat-form-group">
-      <%= f.text_field :body %>
-      <%= f.hidden_field :room_id, :value => @room.id %>
-      <%= f.submit "送信する" %>
-    </div>
-  <% end %>
 </div>
