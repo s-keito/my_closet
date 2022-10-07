@@ -1,19 +1,24 @@
-<% @another_entries.each do |entry| %>
-  <%= link_to room_path(entry.room) do %>
-    <div class="card">
-      <div class="card-body">
-        <div>
-          <div class="d-flex">
-            <div class="chat-avatar">
-              <object>
-                <%= link_to user_path(entry.user) do %>
+<div class="container">
+  <div class="row">
+    <div class="col-2"></div>
+     <div class="col-8 my-5">
+
+      <table class="table table-striped">
+        <tbody>
+          <tr>
+            <td><% @another_entries.each do |entry| %>
+              <%= link_to room_path(entry.room) do %>
+                <div class="chat-avatar">
+                  <%= image_tag entry.user.get_user_image, size: "100x100" %>
                   <%= entry.user.name %>
-                <% end %>
-              </object>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  <% end %>
-<% end %>
+                </div>
+              <% end %>
+            <% end %></td>
+          </tr>
+        </tbody>
+      </table>
+
+     </div>
+    <div class="col-2"></div>
+  </div>
+</div>
