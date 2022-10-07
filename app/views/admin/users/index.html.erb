@@ -2,35 +2,35 @@
   <div class="row my-4">
     <h4 class="text-center">ユーザ一覧</h4>
   </div>
-    <div class="row">
-     <div class="col-2"></div>
-      <div class="col-8">
-        <table class='table table-hover table-inverse'>
-          <thead>
-            <tr>
-              <th>ユーザID</th>
-              <th>氏名</th>
-              <th>メールアドレス</th>
-              <th>ステータス</th>
-            </tr>
-          </thead>
-          <tbody>
-          <% @users.each do |user| %>
-            <tr>
-              <td><%= user.id %></td>
-              <td><%= link_to user.name, admin_user_path(user.id), class: "text-dark border-bottom border-dark " %></td>
-              <td><%= user.email %></td>
-              <% if user.is_deleted ==false %>
-              <td class="text-success font-weight-bold">有効</td>
-              <% else %>
-              <td class="text-secondary font-weight-bold">退会</td>
-              <% end %>
-            </tr>
-          <% end %>
-          </tbody>
-        </table>
+      <div class="row">
+       <div class="col-2"></div>
+        <div class="col-8">
+          <table class='table table-hover table-inverse'>
+            <thead>
+              <tr>
+                <th>ユーザID</th>
+                <th>氏名</th>
+                <th>メールアドレス</th>
+                <th>ステータス</th>
+              </tr>
+            </thead>
+            <tbody>
+            <% @users.each do |user| %>
+              <tr>
+                <td><%= user.id %></td>
+                <td><%= link_to user.name, admin_user_path(user.id), class: "text-dark border-bottom border-dark " %></td>
+                <td><%= user.email %></td>
+                <% if user.is_deleted ==false %>
+                <td class="text-success font-weight-bold">有効</td>
+                <% else %>
+                <td class="text-secondary font-weight-bold">退会</td>
+                <% end %>
+              </tr>
+            <% end %>
+            </tbody>
+          </table>
         <div class="pagination justify-content-center">
-        <!--</%= paginate @user %>-->
+          <%= paginate @users %>
         </div>
       </div>
      <div class="col-2"></div>

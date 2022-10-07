@@ -8,7 +8,7 @@ class Public::DressesController < ApplicationController
     @dress = Dress.new(dress_params)
     @dress.user_id = current_user.id
     if @dress.save
-      redirect_to user_path(@dress.user), notice: "You have created book successfully."
+      redirect_to user_path(@dress.user), notice: "新規投稿に成功しました！"
     else
       render 'new'
     end
@@ -20,6 +20,7 @@ class Public::DressesController < ApplicationController
   end
 
   def index
+    #@posts = Post.published
     @seasons = Season.all
     @dresses = params[:name].present? ? Season.find(params[:name]).dresses : Dress.all.order(created_at: :desc)
   end
@@ -46,7 +47,7 @@ class Public::DressesController < ApplicationController
   private
 
   def dress_params
-    params.require(:dress).permit(:image, :category, :caption, :season_id, :name)
+    params.require(:dress).permit(:image, :category, :caption, :name, :is_status, :season_id)
   end
 
 

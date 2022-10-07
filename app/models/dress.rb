@@ -9,6 +9,7 @@ class Dress < ApplicationRecord
   validates :image, presence: true
   validates :caption, presence: true, length: { in: 1..40 }
   validates :category, presence: true
+  validates :is_status, inclusion: [true, false]
 
   def get_image
     (image.attached?) ? image : 'no_image.jpg'

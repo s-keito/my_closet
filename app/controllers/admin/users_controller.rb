@@ -1,8 +1,8 @@
 class Admin::UsersController < ApplicationController
 
   def index
-    @users = User.all
-    #@customer = Customer.page(params[:page])
+    #@users = User.all
+    @users = User.page(params[:page]).per(5).order(created_at: :desc)
   end
 
   def show

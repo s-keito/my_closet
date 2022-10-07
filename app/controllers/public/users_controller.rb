@@ -10,7 +10,8 @@ class Public::UsersController < ApplicationController
   end
 
   def index
-    @users = User.all.order(created_at: :desc)
+    #@users = User.all.order(created_at: :desc)
+    @users = User.page(params[:page]).per(5).order(created_at: :desc)
   end
 
   def edit
@@ -55,7 +56,7 @@ class Public::UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:name, :introduction, :user_image)
+    params.require(:user).permit(:name, :introduction, :user_image, :is_deleted)
   end
 
   def ensure_guest_user
