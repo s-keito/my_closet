@@ -1,0 +1,19 @@
+<% @another_entries.each do |entry| %>
+  <%= link_to room_path(entry.room) do %>
+    <div class="card">
+      <div class="card-body">
+        <div>
+          <div class="d-flex">
+            <div class="chat-avatar">
+              <object>
+                <%= link_to user_path(entry.user) do %>
+                  <%= entry.user.name %>
+                <% end %>
+              </object>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  <% end %>
+<% end %>
