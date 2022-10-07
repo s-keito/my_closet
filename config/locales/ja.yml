@@ -1,0 +1,13 @@
+ja:
+    enums:
+      dress:
+        is_status:
+          true: "公開"
+          false: "非公開"
+
+        category:
+          tops: "トップス"
+          bottoms: "ボトムス"
+          shoes: "シューズ"
+          accessories: "アクセサリー"
+          

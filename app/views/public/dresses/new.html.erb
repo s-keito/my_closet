@@ -24,7 +24,7 @@
 
         <div class="form-group">
          <%= f.label :category, "カテゴリー" %>
-         <%= f.select :category, Dress.categories.keys.map {|k| [I18n.t("enums.dress.category.#{k}"), k]} %>
+         <%= f.select :category, Dress.categories.keys %>
         </div>
 
         <div class="form-group">

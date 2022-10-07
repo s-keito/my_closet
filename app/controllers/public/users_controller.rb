@@ -6,7 +6,15 @@ class Public::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @seasons = Season.all
-    @dresses = params[:name].present? ? Season.find(params[:name]).dresses : @user.dresses.order(created_at: :desc)
+
+    if @user == current_user
+      @count = @user.dresses.count
+      @dresses = params[:name].present? ? Season.find(params[:name]).dresses : @user.dresses.order(created_at: :desc)
+    else
+      @count = @user.dresses.where(is_status: true).count
+      @dresses = params[:name].present? ? Season.find(params[:name]).dresses : @user.dresses.where(is_status: true).order(created_at: :desc)
+    end
+
   end
 
   def index

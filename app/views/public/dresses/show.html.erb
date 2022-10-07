@@ -6,9 +6,9 @@
          <div class="dress_image"><%= image_tag @dress.get_image, size: '400x400' %></div>
           Posted date：<%= @dress.created_at.strftime('%Y/%m/%d') %><br>
            Caption:：<%= @dress.caption %><br>
-            Category：<%= @dress.category_i18n %><br>
+           Category：<%= @dress.category %><br>
            Season：<%= @dress.season.name %><br>
-           <%= @dress.is_status %>
+           公開：<%= @dress.is_status %><br>
           <a><%= link_to user_path(@dress.user), class:"text-dark", style:"font-size:18px;" do %>
          <%= @dress.user.name %><% end %></a>
         </div>
