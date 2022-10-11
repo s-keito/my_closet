@@ -8,13 +8,13 @@
            Caption:：<%= @dress.caption %><br>
            Category：<%= @dress.category %><br>
            Season：<%= @dress.season.name %><br>
-           公開：<%= @dress.is_status %><br>
-          <a><%= link_to user_path(@dress.user), class:"text-dark", style:"font-size:18px;" do %>
+           <!--公開：</%= @dress.is_status %><br>-->
+          <a><%= link_to user_path(@dress.user), style:"font-size:18px;" do %>
          <%= @dress.user.name %><% end %></a>
         </div>
 
         <div class=<%= "favorite-btn-#{@dress.id}" %> >
-         <%= render 'public/favorites/favorite-btn', dress: @dress %>
+         <%= render 'favorites/favorite-btn', dress: @dress %>
         </div>
 
         <div class="btn">
@@ -29,33 +29,15 @@
        </div>
 
        <div class="comment_count my-4">
-         <p>コメント件数：<%= @dress.comments.count %></p>
+        <%= render "comments/counter", dress: @dress %>
        </div>
 
-       <div class="comment_form">
-         <%= form_with model: [@dress, @comment] do |f| %>
-           <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに" %>
-           <%= f.submit "送信する" %>
-         <% end %>
-       </div>
+       <div class=<%= "comment_form-#{@dress.id}-#{@comment.id}" %> >
+         <%= render 'comments/form', dress: @dress, comment: @comment %>
+   　   </div>
 
-       <div class="comment my-5">
-        <table class="table">
-          <tbody>
-           <% @dress.comments.each do |comment| %>
-            <tr>
-              <th scope="row"><%= comment.user.name %></th>
-              <td><%= comment.created_at.strftime('%Y/%m/%d') %></td>
-              <td><%= comment.comment %></td>
-              <td>
-               <% if comment.user == current_user %>
-                <%= link_to "削除", dress_comment_path(comment.dress, comment), method: :delete %>
-               <% end %>
-              </td>
-             </tr>
-            <% end %>
-          </tbody>
-        </table>
+       <div class="comments_index my-5">
+        <%= render "comments/index", dress: @dress %>
        </div>
      </div>
     <div class="col"></div>

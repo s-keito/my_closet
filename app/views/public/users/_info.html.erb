@@ -3,9 +3,8 @@
     <div class="col-2">
       <%= image_tag user.get_user_image, style: "border-radius: 50%; width: 100px; height: 100px; object-fit:cover;" %>
   	    <p><%= user.name %></p>
-
-         <% if user.name != "guestuser" %>
-          <% if user == current_user %>
+        <% if user == current_user %>
+          <% if user.name != "guestuser" %>
            <%= link_to edit_user_path(user) do %>
             <div class="btn">
              <button type="button" class="btn btn-secondary"><i class="fas fa-user"></i> edit</button>
@@ -16,12 +15,12 @@
              <button type="button" class="btn btn-secondary"><i class="fas fa-user"></i> 退会</button>
             </div>
            <% end %>
+          <% end %>
            <%= link_to rooms_path(user) do %>
             <div class="btn">
              <button type="button" class="btn btn-secondary"> DM一覧</button>
             </div>
            <% end %>
-          <% end %>
          <% end %>
 
         <% if @user != current_user %>
@@ -37,7 +36,7 @@
            <div class="btn">
              <% unless @user.id == current_user.id %>
               <% if @is_room == true %>
-               <%= link_to "メッセージへ", room_path(@room_id) %>
+               <%= link_to "メッセージへ", room_path(@room_id), class:"btn btn-secondary"  %>
                 <% else %>
                  <%= form_with model: @room do |f| %>
                    <%= fields_for @entry do |e| %>
@@ -53,7 +52,7 @@
 
     <div class="col-1"></div>
      <div class="col-9">
-        <h3 class="text-dark">introduction</h3>
+        <h4 class="text-dark">introduction</h4>
           <p class="introduction-text my-2">
            <%= @user.introduction %>
           </p>
@@ -63,7 +62,7 @@
             <a><%= link_to followers_user_path(@user), class:"text-dark", style:"font-size:18px;" do %>
             　フォロワー数：<%= user.followers.count %><% end %></a>
             　post数：<%= @count %>
-            　<p><%=link_to"いいねした投稿",favorites_user_path(@user) %></p>
+            　<a><i class="fas fa-thumbs-up"></i><%=link_to"いいねした投稿",favorites_user_path(@user), class:"text-dark" %></a>
           </div>
      </div>
   </div>

@@ -1,13 +1,14 @@
-<%= notice %>
-  <div class="jumbotron bg-white">
-    <h1 class="display-3">My Closet</h1>
-    <p class="lead">〜おうちのクローゼットを手の中に〜</p>
-    <hr class="my-2">
-    <p class="lead my-4">
-      <a class="btn btn-secondary" href="/users/sign_up" role="button">sign up</a>
-      <a class="btn btn-secondary" href="/users/sign_in" role="button">log in</a>
-      <a>
-        <%= link_to 'guest login', users_guest_sign_in_path, class: "btn btn-secondary", method: :post %>
-      </a>
-    </p>
-  </div>
+    <div class="top-image my-5", style="text-align: center">
+      <%= image_tag "/assets/top4.png", size:'800x400' %>
+        <h1 class="text-dark my-5">Welcome My Closet！</h1>
+        <h5 class="text-dark my-1">〜おうちのクローゼットを手の中に〜</h5>
+        <% if user_signed_in? %>
+        <% else %>
+          <a class="btn btn-secondary my-3" href="/users/sign_up" role="button">sign up</a>
+          <a class="btn btn-secondary" href="/users/sign_in" role="button">log in</a>
+          <a>
+            <%= link_to 'guest login', users_guest_sign_in_path, class: "btn btn-secondary", method: :post %>
+          </a>
+        <% end %>
+    </div>
+
