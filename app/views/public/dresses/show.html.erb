@@ -13,20 +13,8 @@
          <%= @dress.user.name %><% end %></a>
         </div>
 
-        <div class="favorite my-2">
-         <% if @dress.favorited_by?(current_user) %>
-          <p style="font-size:20px;">
-            <%= link_to dress_favorites_path(@dress), class:"text-dark", method: :delete do %>
-            ♥<%= @dress.favorites.count %>
-            <% end %>
-          </p>
-         <% else %>
-          <p style="font-size:20px;">
-           <%= link_to dress_favorites_path(@dress), class:"text-dark", method: :post do %>
-           ♡<%= @dress.favorites.count %>
-           <% end %>
-          </p>
-         <% end %>
+        <div class=<%= "favorite-btn-#{@dress.id}" %> >
+         <%= render 'public/favorites/favorite-btn', dress: @dress %>
         </div>
 
         <div class="btn">

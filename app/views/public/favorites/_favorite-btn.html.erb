@@ -1,0 +1,13 @@
+<% if dress.favorited_by?(current_user) %>
+<p>
+<%= link_to dress_favorites_path(dress), method: :delete, remote: true do %>
+♥<%= dress.favorites.count %>
+<% end %>
+</p>
+<% else %>
+<p>
+<%= link_to dress_favorites_path(dress), method: :post,remote: true do %>
+♡<%= dress.favorites.count %>
+<% end %>
+</p>
+<% end %>
