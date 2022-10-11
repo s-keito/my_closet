@@ -1,4 +1,4 @@
-<h1>投稿一覧</h1>
+<h2 class="p-5 my-5">投稿一覧</h2>
  <% @dresses.each do |dress| %>
     <%= link_to admin_dress_path(dress) do %>
       <%= image_tag dress.get_image, size:'200x200' %>
