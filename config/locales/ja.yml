@@ -1,13 +1,8 @@
 ja:
-    enums:
-      dress:
-        is_status:
-          true: "公開"
-          false: "非公開"
-
-        category:
-          tops: "トップス"
-          bottoms: "ボトムス"
-          shoes: "シューズ"
-          accessories: "アクセサリー"
-          
+  views:
+      pagination:
+        first: '最初'
+        last: '最後'
+        previous: '前'
+        next: '次'
+        truncate: '...'

@@ -53,6 +53,10 @@
   -webkit-transform: rotate(145deg);
   transform: rotate(145deg);
 }
+
+.pagination {
+  justify-content: center;
+}
 /*
  * This is a manifest file that'll be compiled into application.css, which will include all the files
  * listed below.

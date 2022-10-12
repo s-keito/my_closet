@@ -11,7 +11,7 @@
 
       <div class="field">
       <%= f.label :name %><br>
-      <%= f.text_field :name, autofocus: true, %>
+      <%= f.text_field :name, autofocus: true %>
       </div>
 
       <div class="field">
@@ -33,7 +33,7 @@
       </div>
 
       <div class="actions">
-        <%= f.submit "Sign up" %>
+        <%= f.submit "Sign up", class: "btn btn-dark my-3" %>
       </div>
     <% end %>
 
