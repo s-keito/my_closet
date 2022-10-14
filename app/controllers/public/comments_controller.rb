@@ -1,12 +1,13 @@
 class Public::CommentsController < ApplicationController
   def create
-    dress = Dress.find(params[:dress_id])
+    @dress = Dress.find(params[:dress_id])
     @comment = current_user.comments.new(comment_params)
-    @comment.dress_id = dress.id
+    @comment.dress_id = @dress.id
     @comment.save
   end
 
   def destroy
+    @dress = Dress.find(params[:dress_id])
     @comment = Comment.find(params[:id])
     @comment.destroy
   end

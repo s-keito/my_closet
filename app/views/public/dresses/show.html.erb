@@ -4,17 +4,21 @@
      <div class="col">
        <div class="dress_show">
          <div class="dress_image"><%= image_tag @dress.get_image, size: '400x400' %></div>
-          Posted date：<%= @dress.created_at.strftime('%Y/%m/%d') %><br>
-           Caption:：<%= @dress.caption %><br>
-           Category：<%= @dress.category %><br>
-           Season：<%= @dress.season.name %><br>
-           <!--公開：</%= @dress.is_status %><br>-->
-          <a><%= link_to user_path(@dress.user), style:"font-size:18px;" do %>
-         <%= @dress.user.name %><% end %></a>
+
+          <table class="table table-borderless">
+            <tbody>
+                <tr><td><%= @dress.created_at.strftime('%Y/%m/%d') %></td></tr>
+                <tr><td>Caption:：<%= @dress.caption %></td></tr>
+                <tr><td>Category：<%= @dress.category %></td></tr>
+                <tr><td>Season：<%= @dress.season.name %></td></tr>
+                <tr><td><a><%= link_to user_path(@dress.user), style:"font-size:18px;" do %>
+                       <%= @dress.user.name %><% end %></a></td></tr>
+            </tbody>
+          </table>
         </div>
 
-        <div class=<%= "favorite-btn-#{@dress.id}" %> >
-         <%= render 'favorites/favorite-btn', dress: @dress %>
+        <div id="favorite_btn_<%= @dress.id %>" >
+         <%= render "public/favorites/favorites", dress: @dress %>
         </div>
 
         <div class="btn">
@@ -28,17 +32,10 @@
         <% end %>
        </div>
 
-       <div class="comment_count my-4">
-        <%= render "comments/counter", dress: @dress %>
-       </div>
-
-       <div class=<%= "comment_form-#{@dress.id}-#{@comment.id}" %> >
-         <%= render 'comments/form', dress: @dress, comment: @comment %>
+       <div id=<%= "comments-area" %> >
+         <%= render 'public/comments/form', dress: @dress, comment: @comment %>
    　   </div>
 
-       <div class="comments_index my-5">
-        <%= render "comments/index", dress: @dress %>
-       </div>
      </div>
     <div class="col"></div>
   </div>
