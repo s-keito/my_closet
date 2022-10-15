@@ -1,5 +1,6 @@
 class Public::RoomsController < ApplicationController
   before_action :authenticate_user!
+  
   def create
     room = Room.create
     current_entry = Entry.create(user_id: current_user.id, room_id: room.id)

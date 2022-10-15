@@ -1,4 +1,5 @@
 class Public::DressesController < ApplicationController
+  before_action :authenticate_user!
 
    def new
     @dress = Dress.new
