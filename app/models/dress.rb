@@ -28,8 +28,6 @@ class Dress < ApplicationRecord
 
   # 検索方法分岐
   def self.looks(word)
-    # Dress.where("caption LIKE ? OR category LIKE ?","%#{word}%","%#{word}%")
     Dress.joins(:season, :category).where(['seasons.name LIKE ?', "%#{word}%"]).or(Dress.where('dresses.caption LIKE ?', "%#{word}%")).or(Dress.where(['categories.name LIKE ?', "%#{word}%"]))
-    #Dress.joins(:season).where(['seasons.name LIKE ?', "%#{word}%"]).or(Dress.where('dresses.caption LIKE ?', "%#{word}%"))
   end
 end

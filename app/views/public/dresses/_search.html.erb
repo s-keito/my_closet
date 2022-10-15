@@ -12,19 +12,19 @@
   <% end %>
 </div>
 
-<div class ="border border-dark pb-3">
-  <h5 class="border-bottom border-dark text-center p-2"><strong>category検索</strong></h5>
-   <%= form_with model: category, class: 'boards__searchForm' do %>
-    <% categories.each do |category| %>
-      <div class="tag-box px-3">
-        <%= link_to category.name, dresses_path(name: category.id), class:"text-dark" %>
-      </div>
-    <% end %>
-      <div class="tag-box px-3">
-        <%= link_to "全ての投稿", dresses_path, class:"text-dark" %>
-      </div>
-  <% end %>
-</div>
+<!--<div class ="border border-dark pb-3">-->
+<!--  <h5 class="border-bottom border-dark text-center p-2"><strong>category検索</strong></h5>-->
+<!--   </%= form_with model: category, class: 'boards__searchForm' do %>-->
+<!--    </% categories.each do |category| %>-->
+<!--      <div class="tag-box px-3">-->
+<!--        </%= link_to category.name, dresses_path(name: category.id), class:"text-dark" %>-->
+<!--      </div>-->
+<!--    </% end %>-->
+<!--      <div class="tag-box px-3">-->
+<!--        </%= link_to "全ての投稿", dresses_path, class:"text-dark" %>-->
+<!--      </div>-->
+<!--  </% end %>-->
+<!--</div>-->
 
 
 
