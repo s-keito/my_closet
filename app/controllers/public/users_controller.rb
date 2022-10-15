@@ -6,13 +6,28 @@ class Public::UsersController < ApplicationController
   def show
     @user = User.find(params[:id])
     @seasons = Season.all
+    @categories = Category.all
 
     if @user == current_user
       @count = @user.dresses.count
-      @dresses = params[:name].present? ? Season.find(params[:name]).dresses.where(user: @user) : @user.dresses.order(created_at: :desc)
+      #@dresses = params[:name].present? ? Season.find(params[:name]).dresses.where(user: @user) : @user.dresses.order(created_at: :desc)
+      if params[:name].present?
+        @dresses = Season.find(params[:name]).dresses.where(user: @user)
+      elsif params[:kind].present?
+        @dresses = Category.find(params[:kind]).dresses.where(user: @user)
+      else
+        @dresses = @user.dresses.order(created_at: :desc)
+      end
     else
       @count = @user.dresses.where(is_status: true).count
-      @dresses = params[:name].present? ? Season.find(params[:name]).where(is_status: true).dresses.where(user: @user) : @user.dresses.where(is_status: true).order(created_at: :desc)
+      #@dresses = params[:name].present? ? Season.find(params[:name]).where(is_status: true).dresses.where(user: @user) : @user.dresses.where(is_status: true).order(created_at: :desc)
+      if params[:name].present?
+        @dresses = Season.find(params[:name]).dresses.where(is_status: true).where(user: @user)
+      elsif params[:kind].present?
+        @dresses = Category.find(params[:kind]).dresses.where(is_status: true).where(user: @user)
+      else
+        @dresses = @user.dresses.where(is_status: true).order(created_at: :desc)
+      end
     end
 
     @current_entry = Entry.where(user_id: current_user.id)

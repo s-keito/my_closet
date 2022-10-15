@@ -19,8 +19,8 @@ Admin.create!(
   )
 
 Category.create([
-    { name: 'tops' },
-    { name: 'bottoms' },
-    { name: 'shoes' },
-    { name: 'accessories' },
+    { kind: 'tops' },
+    { kind: 'bottoms' },
+    { kind: 'shoes' },
+    { kind: 'accessories' },
     ])

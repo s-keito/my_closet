@@ -23,7 +23,16 @@ class Public::DressesController < ApplicationController
 
   def index
     @seasons = Season.all
-    @dresses = params[:name].present? ? Season.find(params[:name]).dresses.where(is_status: true) : Dress.where(is_status: true).order(created_at: :desc)
+    @categories = Category.all
+    #@dresses = params[:name].present? ? Season.find(params[:name]).dresses.where(is_status: true) : Dress.where(is_status: true).order(created_at: :desc)
+
+    if params[:name].present?
+      @dresses = Season.find(params[:name]).dresses.where(is_status: true)
+    elsif params[:kind].present?
+      @dresses = Category.find(params[:kind]).dresses.where(is_status: true)
+    else
+      @dresses = Dress.where(is_status: true).order(created_at: :desc)
+    end
     #@dresses = params[:name].present? ? Season.find(params[:name]).where(is_status: true).dresses.or(Category.find(params[:name]).where(is_status: true).dresses) : Dress.where(is_status: true).order(created_at: :desc)
     #@dresses = params[:name].present? ? Dress.joins(:season).find(params[:name]).where(is_status: true).dresses.or(Dress.joins(:category).find(params[:name]).where(is_status: true)).or(Dress.where(is_status: true).order(created_at: :desc))
   end
@@ -51,7 +60,7 @@ class Public::DressesController < ApplicationController
   private
 
   def dress_params
-    params.require(:dress).permit(:image, :category_id, :caption, :name, :is_status, :season_id)
+    params.require(:dress).permit(:image, :category_id, :name, :is_status, :season_id)
   end
 
 

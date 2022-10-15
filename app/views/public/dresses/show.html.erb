@@ -12,7 +12,7 @@
             <tbody>
                 <tr><td><%= @dress.created_at.strftime('%Y/%m/%d') %></td></tr>
                 <tr><td>Caption:：<%= @dress.caption %></td></tr>
-                <tr><td>Category：<%= @dress.category.name %></td></tr>
+                <tr><td>Category：<%= @dress.category.kind %></td></tr>
                 <tr><td>Season：<%= @dress.season.name %></td></tr>
                 <tr><td>公開：<%= @dress.status_text %></td></tr>
                 <tr><td><a><%= link_to user_path(@dress.user), style:"font-size:18px;" do %>

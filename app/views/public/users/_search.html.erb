@@ -3,11 +3,11 @@
    <%= form_with model: season, class: 'boards__searchForm' do %>
     <% seasons.each do |season| %>
       <div class="tag-box px-3">
-        <%= link_to season.name, dresses_path(name: season.id), class:"text-dark" %>
+        <%= link_to season.name, user_path(user, name: season.id), class:"text-dark" %>
       </div>
     <% end %>
       <div class="tag-box px-3">
-        <%= link_to "全ての投稿", dresses_path, class:"text-dark" %>
+        <%= link_to "全ての投稿", user_path(user), class:"text-dark" %>
       </div>
   <% end %>
 </div>
@@ -17,11 +17,11 @@
    <%= form_with model: category, class: 'boards__searchForm' do %>
     <% categories.each do |category| %>
       <div class="tag-box px-3">
-        <%= link_to category.kind, dresses_path(kind: category.id), class:"text-dark" %>
+        <%= link_to category.kind, user_path(user, kind: category.id), class:"text-dark" %>
       </div>
     <% end %>
       <div class="tag-box px-3">
-        <%= link_to "全ての投稿", dresses_path, class:"text-dark" %>
+        <%= link_to "全ての投稿", user_path(user), class:"text-dark" %>
       </div>
   <% end %>
 </div>
