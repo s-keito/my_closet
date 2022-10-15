@@ -1,19 +1,7 @@
 <div class="container">
   <div class="row">
     <div class="col-2 my-5">
-      <div class ="border border-dark pb-3">
-          <h5 class="border-bottom border-dark text-center p-2"><strong>ジャンル検索</strong></h5>
-           <%= form_with model: @season, class: 'boards__searchForm' do %>
-            <% @seasons.each do |season| %>
-              <div class="tag-box px-3">
-                <%= link_to season.name, dresses_path(name: season.id), class:"text-dark" %>
-              </div>
-            <% end %>
-              <div class="tag-box px-3">
-                <%= link_to "全ての投稿", dresses_path, class:"text-dark" %>
-              </div>
-          <% end %>
-        </div>
+      <%= render "search", seasons: @seasons, categories: @categories, season: @season, category: @category %>
     </div>
      <div class="col-10 my-5">
       <%= render "dressindex", dresses: @dresses %>

@@ -43,12 +43,13 @@ class User < ApplicationRecord
   end
 
   # 検索方法分岐
-  def self.looks(search, word)
-    if search == "partial_match"
-      @user = User.where("name LIKE?","%#{word}%")
-    else
-      @user = User.all
-    end
+  def self.looks(word)
+    @user = User.where("name LIKE ?","%#{word}%")
+    # if search == "partial_match"
+    #   @user = User.where("name LIKE?","%#{word}%")
+    # else
+    #   @user = User.all
+    # end
   end
 
   # 退会処理、is_deletedがfalseならtrueを返すようにしている

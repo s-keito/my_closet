@@ -85,7 +85,6 @@
           <%= form_with url: search_path, local: true, method: :get do |f| %>
             <%= f.text_field :word, class: "form-control mr-sm-2", type: "text", placeholder: "Search" %>
             <%= f.select :range, options_for_select([['User'], ['Dress']]) %>
-            <%= f.hidden_field :search, :value => "partial_match" %>
             <%= f.submit "search", class: "btn btn-outline-dark my-2 my-sm-0 ml-auto", type: "submit" %>
           <% end %>
         </div>

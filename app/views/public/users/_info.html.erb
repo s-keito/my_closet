@@ -16,7 +16,7 @@
             </div>
            <% end %>
           <% end %>
-           <%= link_to rooms_path(user) do %>
+           <%= link_to user_rooms_path(user) do %>
             <div class="btn">
              <button type="button" class="btn btn-secondary"> DM一覧</button>
             </div>
@@ -36,7 +36,7 @@
            <div class="btn">
              <% unless @user.id == current_user.id %>
               <% if @is_room == true %>
-               <%= link_to "メッセージへ", room_path(@room_id), class:"btn btn-secondary"  %>
+               <%= link_to "メッセージへ", user_room_path(@user.id,@room_id), class:"btn btn-secondary"  %>
                 <% else %>
                  <%= form_with model: @room do |f| %>
                    <%= fields_for @entry do |e| %>
@@ -59,9 +59,11 @@
           <div class="count my-5">
             <a><%= link_to followings_user_path(@user), class:"text-dark", style:"font-size:18px;" do %>
               フォロー数：<%= user.followings.count %><% end %></a>
+            <a>　</a>
             <a><%= link_to followers_user_path(@user), class:"text-dark", style:"font-size:18px;" do %>
-            　フォロワー数：<%= user.followers.count %><% end %></a>
-            　post数：<%= @count %>
+            フォロワー数：<%= user.followers.count %><% end %></a>
+            <a>　</a>
+            <a>post数：<%= @count %></a>
             　<a><i class="fas fa-thumbs-up"></i><%=link_to"いいねした投稿",favorites_user_path(@user), class:"text-dark" %></a>
           </div>
      </div>

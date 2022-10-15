@@ -9,7 +9,8 @@ class Public::DressesController < ApplicationController
     @dress = Dress.new(dress_params)
     @dress.user_id = current_user.id
     if @dress.save
-      redirect_to user_path(@dress.user), notice: "新規投稿に成功しました！"
+      flash[:success] = "新規投稿に成功しました！"
+      redirect_to user_path(@dress.user)
     else
       render 'new'
     end
@@ -23,7 +24,8 @@ class Public::DressesController < ApplicationController
   def index
     #@posts = Post.published
     @seasons = Season.all
-    @dresses = params[:name].present? ? Season.find(params[:name]).dresses : Dress.where(is_status: true).order(created_at: :desc)
+    @categories = Category.all
+    @dresses = params[:name].present? ? Season.find(params[:name]).Category.find(params[:name]).where(is_status: true).dresses : Dress.where(is_status: true).order(created_at: :desc)
   end
 
   def edit
@@ -33,7 +35,8 @@ class Public::DressesController < ApplicationController
   def update
     @dress = Dress.find(params[:id])
     if @dress.update(dress_params)
-      redirect_to dress_path(@dress), notice: "投稿編集に成功しました！"
+      flash[:success] = "投稿編集に成功しました！"
+      redirect_to dress_path(@dress)
     else
       render "edit"
     end
@@ -48,7 +51,7 @@ class Public::DressesController < ApplicationController
   private
 
   def dress_params
-    params.require(:dress).permit(:image, :category, :caption, :name, :is_status, :season_id)
+    params.require(:dress).permit(:image, :category_id, :caption, :name, :is_status, :season_id)
   end
 
 

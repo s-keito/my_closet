@@ -9,10 +9,10 @@ class Public::UsersController < ApplicationController
 
     if @user == current_user
       @count = @user.dresses.count
-      @dresses = params[:name].present? ? Season.find(params[:name]).dresses : @user.dresses.order(created_at: :desc)
+      @dresses = params[:name].present? ? Season.find(params[:name]).dresses.where(user: @user) : @user.dresses.order(created_at: :desc)
     else
       @count = @user.dresses.where(is_status: true).count
-      @dresses = params[:name].present? ? Season.find(params[:name]).dresses : @user.dresses.where(is_status: true).order(created_at: :desc)
+      @dresses = params[:name].present? ? Season.find(params[:name]).where(is_status: true).dresses.where(user: @user) : @user.dresses.where(is_status: true).order(created_at: :desc)
     end
 
     @current_entry = Entry.where(user_id: current_user.id)
@@ -46,7 +46,8 @@ class Public::UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     if @user.update(user_params)
-      redirect_to user_path(@user), notice: "You have updated user successfully."
+      flash[:success] = "ユーザー編集に成功しました！"
+      redirect_to user_path(@user)
     else
       render "edit"
     end

@@ -17,3 +17,10 @@ Admin.create!(
   email: 'admin@example',
   password: '123456'
   )
+
+Category.create([
+    { name: 'tops' },
+    { name: 'bottoms' },
+    { name: 'shoes' },
+    { name: 'accessories' },
+    ])

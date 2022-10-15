@@ -1,6 +1,6 @@
 class Public::RoomsController < ApplicationController
   before_action :authenticate_user!
-  
+
   def create
     room = Room.create
     current_entry = Entry.create(user_id: current_user.id, room_id: room.id)
@@ -21,6 +21,15 @@ class Public::RoomsController < ApplicationController
 
   def show
     @room = Room.find(params[:id])
+
+    unless @room.entries.where(user_id: params[:user_id]).any?
+      redirect_to root_path
+    end
+
+    unless @room.entries.where(user_id: current_user.id).any?
+      redirect_to root_path
+    end
+
     @messages = @room.messages.all
     @message = Message.new
     @entries = @room.entries

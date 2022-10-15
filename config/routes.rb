@@ -15,8 +15,8 @@ Rails.application.routes.draw do
       get 'followings'
       get 'followers'
       resources :messages, only: [:create]
-      resources :rooms, only: [:create, :index, :show]
     end
+  resources :rooms, only: [:create, :index, :show]
   end
   resources :dresses, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
     resource :favorites, only: [:create, :destroy]

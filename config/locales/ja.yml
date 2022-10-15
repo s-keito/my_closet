@@ -6,3 +6,9 @@ ja:
         previous: '前'
         next: '次'
         truncate: '...'
+
+      dress:
+        is_status:
+          true: "公開"
+          false: "非公開"
+          

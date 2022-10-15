@@ -1,6 +1,6 @@
 <p>コメント件数：<%= dress.comments.count %></p>
 
-<%= form_with model: [dress, comment] do |f| %>
+<%= form_with model: [dress, comment], local: false do |f| %>
  <%= f.text_area :comment, rows: '5', placeholder: "コメントをここに", class: "form-control mr-sm-2" %>
  <%= f.submit "送信する", class: "btn btn-outline-dark my-2" %>
 <% end %>

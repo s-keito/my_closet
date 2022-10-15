@@ -8,7 +8,7 @@
         <tbody>
           <tr>
             <td><% @another_entries.each do |entry| %>
-              <%= link_to room_path(entry.room) do %>
+              <%= link_to user_room_path(entry.user,entry.room) do %>
                 <div class="chat-avatar">
                   <%= image_tag entry.user.get_user_image, size: "100x100" %>
                   <%= entry.user.name %>

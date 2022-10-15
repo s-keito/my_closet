@@ -3,8 +3,8 @@
     <div class="col-2"></div>
      <div class="col-8 my-5">
        <%= link_to user_path(@another_entry.user) do %>
-        <h3 class="text-center text-dark"><%= @another_entry.user.name %>とのメッセージ</h3>
-       <% end %>
+        <h3 class="text-center text-dark"><%= @another_entry.user.name %><% end %>とのメッセージ</h3>
+
 
        <% @messages.each do |m| %>
          <table class="table table-borderless">
