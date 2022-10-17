@@ -7,7 +7,7 @@
           <% if user.name != "guestuser" %>
            <%= link_to edit_user_path(user) do %>
             <div class="btn">
-             <button type="button" class="btn btn-secondary"><i class="fas fa-user"></i> edit</button>
+             <button type="button" class="btn btn-secondary"><i class="fas fa-user"></i>編集</button>
             </div>
            <% end %>
            <%= link_to unsubscribe_path(user) do %>
@@ -38,12 +38,12 @@
               <% if @is_room == true %>
                <%= link_to "メッセージへ", user_room_path(@user.id,@room_id), class:"btn btn-secondary"  %>
                 <% else %>
-                 <%= form_with model: @room do |f| %>
-                   <%= fields_for @entry do |e| %>
-                     <%= e.hidden_field :user_id, value: @user.id %>
-                    <%= f.submit "メッセージを送る", class:"btn btn-secondary" %>
-                  <% end %>
-                <% end %>
+                 <!--</%= form_with model: @room do |f| %>-->
+                <!--   </%= fields_for @entry do |e| %>-->
+                <!--     </%= e.hidden_field :user_id, value: @user.id %>-->
+                <!--    </%= f.submit "メッセージを送る", class:"btn btn-secondary" %>-->
+                <!--  </% end %>-->
+                <!--</% end %>-->
               <% end %>
             <% end %>
           </div>

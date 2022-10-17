@@ -10,7 +10,6 @@ class Public::UsersController < ApplicationController
 
     if @user == current_user
       @count = @user.dresses.count
-      #@dresses = params[:name].present? ? Season.find(params[:name]).dresses.where(user: @user) : @user.dresses.order(created_at: :desc)
       if params[:name].present?
         @dresses = Season.find(params[:name]).dresses.where(user: @user)
       elsif params[:kind].present?
@@ -20,7 +19,6 @@ class Public::UsersController < ApplicationController
       end
     else
       @count = @user.dresses.where(is_status: true).count
-      #@dresses = params[:name].present? ? Season.find(params[:name]).where(is_status: true).dresses.where(user: @user) : @user.dresses.where(is_status: true).order(created_at: :desc)
       if params[:name].present?
         @dresses = Season.find(params[:name]).dresses.where(is_status: true).where(user: @user)
       elsif params[:kind].present?

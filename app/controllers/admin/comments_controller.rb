@@ -3,6 +3,7 @@ class Admin::CommentsController < ApplicationController
     comment = Comment.find(params[:id])
     comment.destroy
     redirect_to request.referer
+    flash[:destroy] = '削除成功'
   end
 
   private

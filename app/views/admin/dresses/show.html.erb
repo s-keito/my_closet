@@ -1,13 +1,12 @@
 <div class="container">
    <div class="row my-5">
-    <div class="col"></div>
+    <div class="col"><%= flash[:destroy] %></div>
      <div class="col">
-
        <div class="dress_show">
          <div class="dress_image"><%= image_tag @dress.get_image, size: '400x400' %></div>
           Posted date：<%= @dress.created_at.strftime('%Y/%m/%d') %><br>
            Caption:：<%= @dress.caption %><br>
-            Category：<%= @dress.category %><br>
+            Category：<%= @dress.category.kind %><br>
            Season：<%= @dress.season.name %><br>
           <a><%= link_to admin_user_path(@dress.user), class:"text-dark border-bottom border-dark", style:"font-size:18px;" do %>
            <%= @dress.user.name %><% end %></a><br>
