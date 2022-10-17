@@ -1,2 +1,63 @@
 @import '~bootstrap/scss/bootstrap';
 @import '~@fortawesome/fontawesome-free/scss/fontawesome';
+
+
+.main-image {
+  width: 100%;
+  height: 80vh;
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+.navbar-toggler {
+  background: #808080;
+  border-color: #808080;
+}
+
+.says {
+  float: left;
+  position: relative;
+  width: fit-content;
+  padding: 16px;
+  background: #FFFFCC;
+  border-radius: 15px;
+  line-height: 1.5;
+  word-break: break-all;
+}
+.says:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 3px;
+  left: -19px;
+  border: 8px solid transparent;
+  border-right: 18px solid #FFFFCC;
+  -webkit-transform: rotate(35deg);
+  transform: rotate(35deg);
+}
+
+.mycomment {
+  float: right;
+  position: relative;
+  width: fit-content;
+  padding: 16px;
+  background: #DDDDDD;
+  border-radius: 15px;
+  line-height: 1.5;
+  word-break: break-all;
+}
+.mycomment:after {
+  content: "";
+  display: inline-block;
+  position: absolute;
+  top: 3px;
+  right: -19px;
+  border: 8px solid transparent;
+  border-right: 18px solid #DDDDDD;
+  -webkit-transform: rotate(145deg);
+  transform: rotate(145deg);
+}
+
+.pagination {
+  justify-content: center;
+}
