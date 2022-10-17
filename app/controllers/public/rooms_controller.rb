@@ -23,11 +23,11 @@ class Public::RoomsController < ApplicationController
     @room = Room.find(params[:id])
 
     unless @room.entries.where(user_id: params[:user_id]).any?
-      redirect_to root_path
+      redirect_to user_root_path
     end
 
     unless @room.entries.where(user_id: current_user.id).any?
-      redirect_to root_path
+      redirect_to user_root_path
     end
 
     @messages = @room.messages.all
