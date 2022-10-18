@@ -57,7 +57,7 @@ class Public::DressesController < ApplicationController
   private
 
   def dress_params
-    params.require(:dress).permit(:image, :category_id, :name, :is_status, :season_id)
+    params.require(:dress).permit(:image, :category_id, :is_status, :season_id, :caption)
   end
 
 

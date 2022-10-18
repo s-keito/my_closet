@@ -20,12 +20,12 @@
 
             <div class="form-group">
              <%= f.label :category_id, "category" %>
-             <%= f.select :category_id, options_from_collection_for_select(Category.all, :id, :kind) %>
+             <%= f.select :category_id, options_from_collection_for_select(Category.all, :id, :kind, selected: @dress.category_id) %>
             </div>
 
             <div class="form-group">
              <%= f.label :season_id, "season" %>
-             <%= f.select :season_id, options_from_collection_for_select(Season.all, :id, :name) %>
+             <%= f.select :season_id, options_from_collection_for_select(Season.all, :id, :name, selected: @dress.season_id) %>
             </div>
 
             <div class="form-group">

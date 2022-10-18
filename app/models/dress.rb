@@ -6,7 +6,7 @@ class Dress < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_one_attached :image
   validates :image, presence: true
-  #validates :caption, presence: true, length: { in: 1..40 }
+  validates :caption, presence: true, length: { in: 1..40 }
   validates :is_status, inclusion: [true, false]
 
   def get_image

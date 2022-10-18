@@ -19,7 +19,7 @@ class Admin::DressesController < ApplicationController
   private
 
   def dress_params
-    params.require(:dress).permit(:image, :category, :caption, :season_id, :name)
+    params.require(:dress).permit(:image, :category_id, :caption, :season_id, :is_status)
   end
 
 end

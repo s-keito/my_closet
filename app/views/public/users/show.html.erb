@@ -1,19 +1,21 @@
 <div class="container">
   <div class="row">
     <%= flash[:success] %>
-      <%= render "public/users/info", user: @user %>
   </div>
-
-  <div class="row my-5 ml-3">
-    <h2>Item</h2>
-  </div>
-
-  <div class="row">
-    <div class="col-md-2 col-sm-2 col-xs-2">
-     <%= render "search", user: @user, seasons: @seasons, categories: @categories, season: @season, category: @category %>
+    <div class="row">
+        <%= render "public/users/info", user: @user %>
     </div>
-   <div class="col-md-10 col-sm-10 col-xs-10">
-       <%= render "public/dresses/dressindex", dresses: @dresses, seasons: @seasons %>
-   </div>
+
+      <div class="row my-5 ml-3">
+        <h2>Item</h2>
+      </div>
+
+      <div class="row">
+        <div class="col-md-2 col-sm-2 col-xs-2">
+         <%= render "search", user: @user, seasons: @seasons, categories: @categories, season: @season, category: @category %>
+        </div>
+       <div class="col-md-10 col-sm-10 col-xs-10">
+           <%= render "public/dresses/dressindex", dresses: @dresses, seasons: @seasons %>
+       </div>
   </div>
 </div>
