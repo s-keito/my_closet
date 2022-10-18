@@ -12,7 +12,7 @@ class Admin::DressesController < ApplicationController
   def destroy
     @dress = Dress.find(params[:id])
     @dress.destroy
-    redirect_to admin_dresses_path
+    redirect_to admin_user_path(@dress.user)
     flash[:destroy] = '削除成功'
   end
 
