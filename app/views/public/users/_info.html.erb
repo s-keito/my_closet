@@ -1,6 +1,4 @@
-<div class="container">
-  <div class="row my-5">
-    <div class="col-2">
+    <div class="col-md-2 col-sm-2 col-xs-2 my-5">
       <%= image_tag user.get_user_image, style: "border-radius: 50%; width: 100px; height: 100px; object-fit:cover;" %>
   	    <p><%= user.name %></p>
         <% if user == current_user %>
@@ -50,8 +48,8 @@
         <% end %>
     </div>
 
-    <div class="col-1"></div>
-     <div class="col-9">
+    <div class="col-md-1 col-sm-1 col-xs-1"></div>
+     <div class="col-md-9 col-sm-9 col-xs-9 my-5">
         <h4 class="text-dark">introduction</h4>
           <p class="introduction-text my-2">
            <%= @user.introduction %>
@@ -67,5 +65,3 @@
             　<a><i class="fas fa-thumbs-up"></i><%=link_to"いいねした投稿",favorites_user_path(@user), class:"text-dark" %></a>
           </div>
      </div>
-  </div>
-</div>

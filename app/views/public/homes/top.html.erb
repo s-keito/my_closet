@@ -1,14 +1,20 @@
-    <div class="top-image my-5", style="text-align: center">
-      <%= image_tag asset_path('top4.png'), size:'800x400' %>
-        <h1 class="text-dark my-5">Welcome My Closet！</h1>
-        <h5 class="text-dark my-1">〜おうちのクローゼットを手の中に〜</h5>
-        <% if user_signed_in? %>
-        <% else %>
-          <a class="btn btn-secondary my-3" href="/users/sign_up" role="button">sign up</a>
-          <a class="btn btn-secondary" href="/users/sign_in" role="button">log in</a>
-          <a>
-            <%= link_to 'guest login', users_guest_sign_in_path, class: "btn btn-secondary", method: :post %>
-          </a>
-        <% end %>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 col-sm-12 col-xs-12">
+        <div class="top-image my-5", style="text-align: center">
+          <%= image_tag asset_path('top4.png'), width: "80%", height: "40%" %>
+            <h1 class="text-dark my-5">Welcome My Closet！</h1>
+            <h5 class="text-dark my-1">〜おうちのクローゼットを手の中に〜</h5>
+            <% if user_signed_in? %>
+            <% else %>
+              <a class="btn btn-secondary my-3" href="/users/sign_up" role="button">sign up</a>
+              <a class="btn btn-secondary" href="/users/sign_in" role="button">log in</a>
+              <a>
+                <%= link_to 'guest login', users_guest_sign_in_path, class: "btn btn-secondary", method: :post %>
+              </a>
+            <% end %>
+        </div>
+      </div>
     </div>
+  </div>
 
