@@ -12,7 +12,7 @@
           </ul>
         <% end %>
 
-        <%= form_with model: @dress do |f| %>
+        <%= form_with model:@dress, url:dress_path(@dress) do |f| %>
           <div class="form-group">
             <%= f.label :caption %>
             <%= f.text_area :caption, class: 'form-control dress_caption' %>
