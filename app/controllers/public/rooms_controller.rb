@@ -5,7 +5,7 @@ class Public::RoomsController < ApplicationController
     room = Room.create
     current_entry = Entry.create(user_id: current_user.id, room_id: room.id)
     another_entry = Entry.create(user_id: params[:entry][:user_id], room_id: room.id)
-    redirect_to user_room_path(room)
+    redirect_to user_root_path
   end
 
   def index
