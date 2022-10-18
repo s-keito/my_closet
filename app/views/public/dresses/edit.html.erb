@@ -12,7 +12,7 @@
           </ul>
         <% end %>
 
-        <%= form_with model: @dress, url: dress_path, local:true do |f| %>
+        <%= form_with model: @dress do |f| %>
           <div class="form-group">
             <%= f.label :caption %>
             <%= f.text_area :caption, class: 'form-control dress_caption' %>
@@ -20,7 +20,7 @@
 
             <div class="form-group">
              <%= f.label :category_id, "category" %>
-             <%= f.select :category_id, options_from_collection_for_select(Category.all, :id, :name) %>
+             <%= f.select :category_id, options_from_collection_for_select(Category.all, :id, :kind) %>
             </div>
 
             <div class="form-group">
