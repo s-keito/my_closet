@@ -24,7 +24,6 @@ class Public::DressesController < ApplicationController
   def index
     @seasons = Season.all
     @categories = Category.all
-    #@dresses = params[:name].present? ? Season.find(params[:name]).dresses.where(is_status: true) : Dress.where(is_status: true).order(created_at: :desc)
 
     if params[:name].present?
       @dresses = Season.find(params[:name]).dresses.where(is_status: true)
@@ -33,8 +32,6 @@ class Public::DressesController < ApplicationController
     else
       @dresses = Dress.where(is_status: true).order(created_at: :desc)
     end
-    #@dresses = params[:name].present? ? Season.find(params[:name]).where(is_status: true).dresses.or(Category.find(params[:name]).where(is_status: true).dresses) : Dress.where(is_status: true).order(created_at: :desc)
-    #@dresses = params[:name].present? ? Dress.joins(:season).find(params[:name]).where(is_status: true).dresses.or(Dress.joins(:category).find(params[:name]).where(is_status: true)).or(Dress.where(is_status: true).order(created_at: :desc))
   end
 
   def edit
