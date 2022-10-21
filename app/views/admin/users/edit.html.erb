@@ -3,7 +3,7 @@
     <h4><span class="text-black"><%= @user.name %>さんのユーザー編集</span></h4>
   </div>
       <div class="row mx-5">
-        <div class="col-12">
+        <div class="col-md-12 col-sm-12 col-xs-12">
           <%= form_with model: @user, url: admin_user_path(@user), method: :patch do |f| %>
 
           <div class="form-group">
@@ -31,4 +31,3 @@
       </div>
     </div>
   </div>
-</div>
