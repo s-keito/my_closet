@@ -11,18 +11,18 @@ class Public::UsersController < ApplicationController
     if @user == current_user
       @count = @user.dresses.count
       if params[:name].present?
-        @dresses = Season.find(params[:name]).dresses.where(user: @user)
+        @dresses = Season.find(params[:name]).dresses.where(user: @user).order(created_at: :desc)
       elsif params[:kind].present?
-        @dresses = Category.find(params[:kind]).dresses.where(user: @user)
+        @dresses = Category.find(params[:kind]).dresses.where(user: @user).order(created_at: :desc)
       else
         @dresses = @user.dresses.order(created_at: :desc)
       end
     else
       @count = @user.dresses.where(is_status: true).count
       if params[:name].present?
-        @dresses = Season.find(params[:name]).dresses.where(is_status: true).where(user: @user)
+        @dresses = Season.find(params[:name]).dresses.where(is_status: true).where(user: @user).order(created_at: :desc)
       elsif params[:kind].present?
-        @dresses = Category.find(params[:kind]).dresses.where(is_status: true).where(user: @user)
+        @dresses = Category.find(params[:kind]).dresses.where(is_status: true).where(user: @user).order(created_at: :desc)
       else
         @dresses = @user.dresses.where(is_status: true).order(created_at: :desc)
       end
