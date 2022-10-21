@@ -5,7 +5,7 @@ class Public::RoomsController < ApplicationController
     room = Room.create
     current_entry = Entry.create(user_id: current_user.id, room_id: room.id)
     another_entry = Entry.create(user_id: params[:entry][:user_id], room_id: room.id)
-    redirect_to user_root_path
+    redirect_to user_rooms_path
   end
 
   def index
@@ -23,11 +23,11 @@ class Public::RoomsController < ApplicationController
     @room = Room.find(params[:id])
 
     unless @room.entries.where(user_id: params[:user_id]).any?
-      redirect_to user_root_path
+      redirect_to user_room_path
     end
 
     unless @room.entries.where(user_id: current_user.id).any?
-      redirect_to user_root_path
+      redirect_to user_room_path
     end
 
     @messages = @room.messages.all
