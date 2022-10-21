@@ -1,9 +1,11 @@
 <div class="container">
   <div class="row">
-    <div class="col-2"></div>
-     <div class="col-8 my-5">
-       <%= link_to user_path(@another_entry.user) do %>
-        <h3 class="text-center text-dark"><%= @another_entry.user.name %><% end %>とのメッセージ</h3>
+    <div class="col-md-2 col-sm-2 col-xs-0"></div>
+      <div class="col-md-8 col-sm-8 col-xs-12 my-5">
+        <div class="message-name mb-5">
+           <%= link_to user_path(@another_entry.user) do %>
+            <h3 class="text-center text-dark"><%= @another_entry.user.name %><% end %>とのメッセージ</h3>
+        </div>
 
 
        <% @messages.each do |m| %>
@@ -37,7 +39,6 @@
            </div>
           </nav>
 
-      </div>
-    <div class="col-2"></div>
+      <div class="col-md-2 col-sm-2 col-xs-0"></div>
   </div>
 </div>
