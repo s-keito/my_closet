@@ -8,37 +8,37 @@
         </div>
 
 
-       <% @messages.each do |m| %>
-         <table class="table table-borderless">
-          <tbody>
-           <tr>
-            <td>
-              <% if m.user_id == current_user.id %>
-                <div class="mycomment text-right">
-                  <%= m.body %>
-                </div>
-              <% else %>
-                  <div class="says text-left">
-                    <%= m.body %>
-                  </div>
-              <% end %>
-             </td>
-            </tr>
-           </tbody>
-         </table>
-        <% end %>
-
-          <nav class="navbar navbar-light bg-white">
-           <div class="form-inline ml-auto">
-            <%= form_with model: @message do |f| %>
-                <%= f.text_field :body, class: "form-control mr-sm-2", type: "text", placeholder: "message" %>
-                <%= f.hidden_field :room_id, :value => @room.id %>
-                <%= f.submit "送信", class: "btn btn-outline-dark my-2 my-sm-0 ml-auto" %>
-             </div>
+           <% @messages.each do |m| %>
+             <table class="table table-borderless">
+              <tbody>
+               <tr>
+                <td>
+                  <% if m.user_id == current_user.id %>
+                    <div class="mycomment text-right">
+                      <%= m.body %>
+                    </div>
+                  <% else %>
+                      <div class="says text-left">
+                        <%= m.body %>
+                      </div>
+                  <% end %>
+                 </td>
+                </tr>
+               </tbody>
+             </table>
             <% end %>
-           </div>
-          </nav>
 
-      <div class="col-md-2 col-sm-2 col-xs-0"></div>
+              <nav class="navbar navbar-light bg-white">
+               <div class="form-inline ml-auto">
+                <%= form_with model: @message do |f| %>
+                    <%= f.text_field :body, class: "form-control mr-sm-2", type: "text", placeholder: "message" %>
+                    <%= f.hidden_field :room_id, :value => @room.id %>
+                    <%= f.submit "送信", class: "btn btn-outline-dark my-2 my-sm-0 ml-auto" %>
+                 </div>
+                <% end %>
+               </div>
+              </nav>
+
+     <div class="col-md-2 col-sm-2 col-xs-0"></div>
   </div>
 </div>
