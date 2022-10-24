@@ -1,6 +1,6 @@
 class Public::DressesController < ApplicationController
   before_action :authenticate_user!
-  before_action :ensure_correct_user, only: [:edit, :update, :withdrawal, :unsubscribe]
+  before_action :correct_dress,only: [:edit, :update, :show]
 
    def new
     @dress = Dress.new
@@ -55,17 +55,17 @@ class Public::DressesController < ApplicationController
     redirect_to user_path(@dress.user)
   end
 
+  def correct_dress
+        @dress= Dress.find(params[:id])
+    unless @dress.user.id == current_user.id
+      redirect_to user_path(current_user)
+    end
+end
+
   private
 
   def dress_params
     params.require(:dress).permit(:image, :category_id, :is_status, :season_id, :caption)
-  end
-
-  def ensure_correct_user
-    @dress = Dress.find(params[:id])
-    unless @dress == current_user.dress
-      redirect_to user_path(current_user)
-    end
   end
 
 

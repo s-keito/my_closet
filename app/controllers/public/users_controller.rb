@@ -49,6 +49,7 @@ class Public::UsersController < ApplicationController
   end
 
   def index
+    #@users = User.all.order(created_at: :desc)
     @users = User.page(params[:page]).per(5).order(created_at: :desc)
   end
 
@@ -92,10 +93,11 @@ class Public::UsersController < ApplicationController
     @favorite_dresses = Dress.find(favorites)
   end
 
-  private
-
-  def user_params
-    params.require(:user).permit(:name, :introduction, :user_image, :is_deleted)
+   def ensure_correct_user
+    @user = User.find(params[:id])
+    unless @user == current_user
+      redirect_to user_path(current_user)
+    end
   end
 
   def ensure_guest_user
@@ -105,15 +107,15 @@ class Public::UsersController < ApplicationController
     end
   end
 
+
+  private
+
+  def user_params
+    params.require(:user).permit(:name, :introduction, :user_image, :is_deleted)
+  end
+
   def set_user
     @user = User.find(params[:id])
-  end
-  
-  def ensure_correct_user
-    @user = User.find(params[:id])
-    unless @user == current_user
-      redirect_to user_path(current_user)
-    end
   end
 
 end
