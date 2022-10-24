@@ -5,10 +5,10 @@
       <table class="table">
         <thead class="thead-dark">
           <tr>
-            <th>image</th>
-            <th>name</th>
-            <th>follow</th>
-            <th>follower</th>
+            <th class="small">image</th>
+            <th class="small">name</th>
+            <th class="small">follow</th>
+            <th class="small">follower</th>
             <th>　　　</th>
           </tr>
         </thead>
@@ -23,7 +23,7 @@
             </td>
             <td><%= user.followings.count %></td>
             <td><%= user.followers.count %></td>
-            <td>
+            <td class="small">
               <% if user != current_user %>
                 <% if current_user.following?(user) %>
                   <%= link_to "フォロー中", user_relationships_path(user.id), method: :delete %>
