@@ -1,6 +1,7 @@
 class Public::UsersController < ApplicationController
   before_action :authenticate_user!
-  before_action :ensure_guest_user, only: [:edit]
+  before_action :ensure_guest_user, only: [:edit, :unsubscribe]
+  before_action :ensure_correct_user, only: [:edit, :update, :withdrawal, :unsubscribe]
   before_action :set_user, only: [:favorites]
 
   def show
@@ -48,7 +49,6 @@ class Public::UsersController < ApplicationController
   end
 
   def index
-    #@users = User.all.order(created_at: :desc)
     @users = User.page(params[:page]).per(5).order(created_at: :desc)
   end
 
@@ -107,6 +107,13 @@ class Public::UsersController < ApplicationController
 
   def set_user
     @user = User.find(params[:id])
+  end
+  
+  def ensure_correct_user
+    @user = User.find(params[:id])
+    unless @user == current_user
+      redirect_to user_path(current_user)
+    end
   end
 
 end

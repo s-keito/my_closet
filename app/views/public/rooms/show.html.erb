@@ -30,7 +30,7 @@
 
               <nav class="navbar navbar-light bg-white">
                <div class="form-inline ml-auto">
-                <%= form_with model: @message do |f| %>
+                <%= form_with model: @message, url: messages_path do |f| %>
                     <%= f.text_field :body, class: "form-control mr-sm-2", type: "text", placeholder: "message" %>
                     <%= f.hidden_field :room_id, :value => @room.id %>
                     <%= f.submit "送信", class: "btn btn-outline-dark my-2 my-sm-0 ml-auto" %>

@@ -9,5 +9,6 @@ class Public::SearchesController < ApplicationController
     else
       @dresses = Dress.looks(params[:word]).where(is_status: true)
     end
+    
   end
 end

@@ -20,15 +20,11 @@ Admin.create!(
 
 Category.create([
     { kind: 'tops' },
-    { kind: 'bottoms' },
+    { kind: 'outer' },
+    { kind: 'pants' },
+    { kind: 'skirts' },
+    { kind: 'all-in-one' },
     { kind: 'shoes' },
     { kind: 'accessories' },
     ])
 
-User.create!(
-  [
-    {email: 'a@a', name: 'Aさん', password: 'aaaaaa', introduction: 'こんにちは', user_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-user1.jpg"), filename:"sample-user1.jpg")},
-    {email: 'b@b', name: 'Bさん', password: 'bbbbbb', introduction: 'アンニョン', user_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-user2.jpg"), filename:"sample-user2.jpg")},
-    {email: 'c@c', name: 'Cさん', password: 'cccccc', introduction: 'ハロー', user_image: ActiveStorage::Blob.create_and_upload!(io: File.open("#{Rails.root}/db/fixtures/sample-user3.jpg"), filename:"sample-user3.jpg")}
-  ]
-)

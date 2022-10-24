@@ -10,13 +10,13 @@ Rails.application.routes.draw do
   get "/homes/about" => "homes#about", as: "about"
   resources :users, only: [:show, :index, :edit, :update] do
     resource :relationships, only: [:create, :destroy]
+    resources :rooms, only: [:create, :index, :show]
     member do
       get 'favorites'
       get 'followings'
       get 'followers'
       resources :messages, only: [:create]
     end
-  resources :rooms, only: [:create, :index, :show]
   end
   resources :dresses, only: [:new, :create, :index, :show, :edit, :update, :destroy] do
     resource :favorites, only: [:create, :destroy]
