@@ -1,7 +1,7 @@
 <div class="container">
 <div class="row">
-    <div class="col-1"></div>
-     <div class="col-10 my-5">
+    <div class="col-md-1 col-sm-1 col-xs-0"></div>
+     <div class="col-md-10 col-sm-10 col-xs-12 my-5">
       <h2>search results</h2>
        <!--検索対象モデルがUserの時 -->
         <% if @range == "User" %>
@@ -44,6 +44,6 @@
           <%= render "public/dresses/dressindex", dresses: @dresses %>
         <% end %>
      </div>
-    <div class="col-1"></div>
+    <div class="col-md-1 col-sm-1 col-xs-0"></div>
   </div>
 
