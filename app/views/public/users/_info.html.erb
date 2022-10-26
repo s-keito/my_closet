@@ -50,15 +50,16 @@
 
     <div class="col-md-1 col-sm-1 col-xs-1"></div>
      <div class="col-md-9 col-sm-9 col-xs-9 my-5">
-        <h4 class="text-dark">introduction</h4>
-          <p class="introduction-text my-2">
+       <h1></h1>
+        <h3 class="text-dark">introduction</h3>
+          <p class="introduction-text my-2", style="font-size:21px;">
            <%= @user.introduction %>
           </p>
-          <div class="count my-5">
-            <a><%= link_to followings_user_path(@user), class:"text-dark", style:"font-size:18px;" do %>
+          <div class="count my-5", style="font-size:21px;">
+            <a><%= link_to followings_user_path(@user), class:"text-dark" do %>
               フォロー数：<%= user.followings.count %><% end %></a>
             <a>　</a>
-            <a><%= link_to followers_user_path(@user), class:"text-dark", style:"font-size:18px;" do %>
+            <a><%= link_to followers_user_path(@user), class:"text-dark" do %>
             フォロワー数：<%= user.followers.count %><% end %></a>
             <a>　</a>
             <a>post数：<%= @count %></a>
