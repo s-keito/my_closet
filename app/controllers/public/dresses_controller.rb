@@ -1,6 +1,6 @@
 class Public::DressesController < ApplicationController
   before_action :authenticate_user!
-  before_action :correct_dress,only: [:edit, :update, :show]
+  before_action :correct_dress,only: [:edit, :update]
 
    def new
     @dress = Dress.new
@@ -19,7 +19,15 @@ class Public::DressesController < ApplicationController
 
   def show
     @dress = Dress.find(params[:id])
+   if @dress.user == current_user
     @comment = Comment.new
+   else
+    if @dress.is_status == true
+     @comment = Comment.new
+    else
+     redirect_to user_path(current_user)
+    end
+   end
   end
 
   def index
