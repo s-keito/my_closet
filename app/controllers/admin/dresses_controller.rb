@@ -1,4 +1,5 @@
 class Admin::DressesController < ApplicationController
+  before_action :authenticate_admin!
 
   def show
     @dress = Dress.find(params[:id])
