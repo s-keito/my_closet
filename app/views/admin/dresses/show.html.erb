@@ -1,7 +1,8 @@
 <div class="container">
-   <div class="row my-5">
-    <div class="destroy"><%= flash[:destroy] %></div>
+  <div class="row my-5">
+    <div class="col"></div>
      <div class="col">
+      <div class="destroy my-4"><%= flash[:destroy] %></div>
        <div class="dress_show">
          <div class="dress_image"><%= image_tag @dress.get_image, size: '400x400' %></div>
           Posted date：<%= @dress.created_at.strftime('%Y/%m/%d') %><br>
