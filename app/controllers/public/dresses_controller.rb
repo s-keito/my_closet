@@ -2,6 +2,7 @@ class Public::DressesController < ApplicationController
   before_action :authenticate_user!
   before_action :correct_dress,only: [:edit, :update]
 
+
    def new
     @dress = Dress.new
    end
