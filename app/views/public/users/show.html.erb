@@ -13,7 +13,7 @@
               <% if @is_room == true %>
                <%= link_to "メッセージへ", user_room_path(@user.id,@room_id), class:"btn btn-secondary"  %>
                 <% else %>
-                 <%= form_with model: @room, url: user_rooms_path(user) do |f| %>
+                 <%= form_with model: @room, url: user_rooms_path(@user) do |f| %>
                    <%= fields_for @entry do |e| %>
                      <%= e.hidden_field :user_id, value: @user.id %>
                     <%= f.submit "メッセージを送る", class:"btn btn-secondary" %>
