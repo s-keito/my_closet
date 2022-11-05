@@ -12,12 +12,12 @@
               <button type="button" class="btn btn-secondary">
              <% unless @user.id == current_user.id %>
               <% if @is_room == true %>
-               <%= link_to "メッセージへ", user_room_path(@user.id,@room_id), class:"btn btn-secondary"  %>
+               <%= link_to "メッセージへ", user_room_path(@user.id,@room_id), class:"text-light"  %>
                 <% else %>
                  <%= form_with model: @room, url: user_rooms_path(@user) do |f| %>
                    <%= fields_for @entry do |e| %>
                      <%= e.hidden_field :user_id, value: @user.id %>
-                    <%= f.submit "メッセージを送る", class:"btn btn-secondary" %>
+                    <%= f.submit "メッセージを送る", class:"text-light" %>
                   <% end %>
                 <% end %>
               <% end %>
